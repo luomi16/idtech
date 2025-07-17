@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f0f0;
+        }
+        .chat-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        pre {
+            margin-top: 20px;
+            background: #f7f7f7;
+            padding: 20px;
+            white-space: pre-wrap;
+            border-left: 5px solid #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <h1>🍽️ Restaurant Chat Assistant</h1>
+        <form method="POST">
+            <label for="prompt">Enter your prompt:</label>
+            <textarea name="prompt" id="prompt" placeholder="Ask anything like 'Please recommend a Japanese restaurant for Miya...'">{{ prompt }}</textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if result %}
+        <pre>{{ result }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>

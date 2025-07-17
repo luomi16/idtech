@@ -1,0 +1,49 @@
+{
+  "database": [
+    {
+      "user_number": 1,
+      "name": "Rei",
+      "city": "San Francisco",
+      "cuisine_1": "Italian",
+      "cuisine_2": "French",
+      "cuisine_3": "Turkish",
+      "budget": "$100"
+    },
+    {
+      "user_number": 2,
+      "name": "Alexis",
+      "city": "New York City",
+      "cuisine_1": "American",
+      "cuisine_2": "Thai",
+      "cuisine_3": "Indian",
+      "budget": "$200"
+    },
+    {
+      "user_number": 3,
+      "name": "Luke",
+      "city": "Phoenix",
+      "cuisine_1": "Moroccan",
+      "cuisine_2": "Middle Eastern",
+      "cuisine_3": "Chinese",
+      "budget": "$150"
+    },
+    {
+      "user_number": 4,
+      "name": "Miya",
+      "city": "Chicago",
+      "cuisine_1": "Japanese",
+      "cuisine_2": "Spanish",
+      "cuisine_3": "Greek",
+      "budget": "$120"
+    },
+    {
+      "user_number": 5,
+      "name": "Anna",
+      "city": "San Antonio",
+      "cuisine_1": "Caribbean",
+      "cuisine_2": "Korean",
+      "cuisine_3": "Mexican",
+      "budget": "$95"
+    }
+  ]
+}
