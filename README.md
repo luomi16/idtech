@@ -1,1 +1,1 @@
-# idtech
+# iDTech

@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 client = OpenAI(
-    api_key="your_api_key_here",
+    api_key="your own api key that I gave you"
 )
 
 open_file = open("dataset.json", "rb")
@@ -26,47 +26,6 @@ ai_assistant = client.beta.assistants.create(
     model="gpt-3.5-turbo",
     tools=[{"type": "file_search"}]
 )
-
-# while True:
-#     prompt = input("Enter a prompt: ")
-#
-#     if prompt.lower() == 'exit':
-#         print("Goodbye!")
-#         break
-#
-#     thread = client.beta.threads.create(
-#         messages=[
-#             {
-#                 "role": "user",
-#                 "content": prompt,
-#                 "attachments": [
-#                     {"file_id": data_file.id, "tools": [{"type": "file_search"}]}
-#                 ]
-#             }
-#         ]
-#     )
-#
-#     print("\n############################################")
-#     print("Thread id: " + thread.id)
-#     print("Assistant id: " + ai_assistant.id)
-#     print("############################################\n")
-#
-#     run = client.beta.threads.runs.create_and_poll(
-#         thread_id=thread.id,
-#         assistant_id=ai_assistant.id
-#     )
-#
-#     if run.status == 'completed':
-#         messages = client.beta.threads.messages.list(
-#             thread_id=thread.id
-#         )
-#         print("User: " + messages.data[1].content[0].text.value)
-#         print("Assistant: " + messages.data[0].content[0].text.value)
-#
-#         print("\n############################################")
-#         print("Run id: " + run.id)
-#     else:
-#         print(run.status)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
