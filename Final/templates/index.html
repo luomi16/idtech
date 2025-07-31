@@ -3,49 +3,34 @@
 <head>
     <title>Restaurant Chat</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f0f0f0;
-        }
-        .chat-box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        pre {
-            margin-top: 20px;
-            background: #f7f7f7;
-            padding: 20px;
-            white-space: pre-wrap;
-            border-left: 5px solid #0077cc;
-        }
+        body { font-family: Arial, sans-serif; padding: 40px; background: #f0f0f0; }
+        .chat-box { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        h1 { margin-bottom: 20px; }
+        .bubble-list { margin-bottom: 20px; }
+        .bubble { margin-bottom: 16px; max-width: 90%; }
+        .bubble.user { background: #e0ecff; align-self: flex-end; border-radius: 15px 15px 0 15px; padding: 14px; }
+        .bubble.assistant { background: #f7f7f7; border-radius: 15px 15px 15px 0; padding: 14px; }
+        .bubble strong { color: #0077cc; }
+        .bubble-list { display: flex; flex-direction: column; }
+        form { display: flex; flex-direction: column; }
+        textarea { resize: vertical; min-height: 70px; padding: 10px; font-size: 16px; }
+        button { margin-top: 10px; padding: 10px; font-size: 16px; }
     </style>
 </head>
 <body>
     <div class="chat-box">
         <h1>🍽️ Restaurant Chat Assistant</h1>
+
+        <div class="bubble-list">
+            {% for msg in history %}
+                {% if msg.role == "user" %}
+                    <div class="bubble user"><strong>You:</strong> {{ msg.content }}</div>
+                {% else %}
+                    <div class="bubble assistant"><strong>Assistant:</strong> {{ msg.content }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
         <form method="POST">
             <label for="prompt">Enter your prompt:</label>
             <textarea name="prompt" id="prompt" placeholder="Ask anything like 'Please recommend a Japanese restaurant for Miya...'">{{ prompt }}</textarea>
@@ -53,7 +38,6 @@
         </form>
 
         {% if result %}
-        <pre>{{ result }}</pre>
         {% endif %}
     </div>
 </body>
