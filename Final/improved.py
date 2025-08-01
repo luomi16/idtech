@@ -112,6 +112,12 @@ def index():
         history=session.get("history", [])
     )
 
+@app.route("/clear", methods=["POST"])
+def clear_history():
+    session.pop("history", None)  # or session["history"] = []
+    # session.clear()
+    return redirect("/")
+
 if __name__ == "__main__":
     # Run the Flask development server (debug=True for auto-reload)
     app.run(debug=True)
